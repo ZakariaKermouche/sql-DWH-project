@@ -62,4 +62,23 @@ CREATE TABLE silver.erp_cust_az12 (
  	cid VARCHAR(50),
   	bdate DATE,
   	gen VARCHAR(10),
-	d
+	dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS silver.erp_loc_a101;
+
+CREATE TABLE silver.erp_loc_a101 (
+  	cid VARCHAR(20),
+  	cntry VARCHAR(100),
+	dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS silver.erp_px_cat_g1v2;
+
+CREATE TABLE silver.erp_px_cat_g1v2 (
+	id VARCHAR(20),
+	cat VARCHAR(100),
+	subcat VARCHAR(100),
+	maintenance CHAR(3),   -- e.g. 'Yes' / 'No'
+	dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
