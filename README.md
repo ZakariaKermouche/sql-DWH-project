@@ -60,5 +60,4 @@ The project follows a standard data engineering structure for clarity and mainta
 
 ### Data Warehouse Architecture
 
-```markdown
-![Architecture Diagram: Source Systems to PostgreSQL DWH](docs/dwh_architecture.png)
+![Architecture Diagram: Source Systems to PostgreSQL DWH](docs/Architecture.png)
