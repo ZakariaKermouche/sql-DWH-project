@@ -1,63 +1,68 @@
-# sql-DWH-project: Sales Data Warehouse and Analytics Solution 🚀
+# 🏢 Sales Data Warehouse & Analytics Solution
 
-This repository demonstrates a comprehensive **Data Warehouse and Analytics Solution** built using industry best practices. Designed as a portfolio project, it covers the entire data journey from integrating multiple source systems to generating actionable, SQL-based business insights.
+This repository demonstrates a comprehensive **Data Warehouse and Analytics Solution** built using **PostgreSQL**. The project covers the full data journey — from integrating multiple source systems to generating actionable business insights — and is designed for portfolio demonstration of modern data engineering and analytics best practices.
 
 ---
 
-## 🚀 Project Requirements and Objectives
+## 🚀 Project Overview
 
-### Building the Data Warehouse (Data Engineering)
+This project aims to **build a dimensional data warehouse** that consolidates sales data and supports complex analytics for informed decision-making.
 
-#### Objective
-Develop a modern dimensional data warehouse using **PostgreSQL** to consolidate sales data, enabling robust analytical reporting and informed decision-making.
+### Key Objectives
 
-#### Specifications
-* **Data Sources**: Import and unify data from two distinct source systems: **ERP** and **CRM** (provided as CSV files).
-* **Data Quality**: Implement specific cleansing and validation steps to resolve data quality issues prior to analysis.
-* **Integration**: Combine both sources into a single, user-friendly **dimensional data model** designed for high-performance analytical queries.
-* **Scope**: Focus on the latest dataset only; historization of data (Type 2 SCDs) is not required for this iteration.
-* **Documentation**: Provide clear documentation of the data model and architecture to support both business stakeholders and analytics teams.
+**Data Engineering (DWH)**
 
-#### 🛠️ Core Tools
+- Ingest and unify data from two source systems: **ERP** and **CRM** (CSV files).  
+- Implement **data quality checks** to resolve inconsistencies.  
+- Transform and integrate data into a **dimensional star schema** for analytics.  
+- Document the data model and architecture for business and analytics teams.  
+
+**Analytics & Reporting (BI)**
+
+- Execute SQL-based analytics to uncover insights in:  
+  - **Customer Behavior:** top customers, purchase frequency  
+  - **Product Performance:** best-selling items, revenue by category  
+  - **Sales Trends:** MoM/YoY analysis, regional sales distribution  
+
+---
+
+## 🏗️ Architecture & ETL Layers
+
+Inspired by the [DataWithBaraa SQL DWH project](https://github.com/DataWithBaraa/sql-data-warehouse-project), this project follows a **Medallion Architecture**:
+
+| Layer | Description |
+|-------|------------|
+| **Bronze** | Raw ingestion of CSV files into PostgreSQL staging tables |
+| **Silver** | Cleansing, standardization, and normalization of data |
+| **Gold** | Business-ready star schema optimized for analytics |
+
+![Architecture Diagram](docs/Architecture.png)
+
+---
+
+## 🛠️ Tools & Technologies
+
 | Category | Tool | Purpose |
-| :--- | :--- | :--- |
-| **Data Warehouse** | 🐘 **PostgreSQL** | Primary DWH platform for schema and data storage. |
-| **Visualization** | 🎨 **Draw.io** | Architecture and dimensional data model diagrams. |
-| **Management** | 📝 **Notion** | Project documentation, task tracking, and design notes. |
-| **Containerization**| 🐳 **Docker** | *(Future Enhancement: For environment reproducibility)* |
-
----
-
-### BI: Analytics & Reporting (Data Analysis)
-
-#### Objective
-Develop and execute complex SQL-based analytics to deliver detailed, mission-critical insights across key business areas.
-
-#### Key Insight Areas
-* **Customer Behavior** (e.g., top customers, purchasing frequency).
-* **Product Performance** (e.g., highest revenue items, product category analysis).
-* **Sales Trends** (e.g., Month-over-Month/Year-over-Year comparison, geographical analysis).
-
-These insights are structured to empower stakeholders with key business metrics, enabling strategic decision-making.
+|----------|------|--------|
+| Data Warehouse | 🐘 PostgreSQL | Core database for schema and data storage |
+| Visualization | 🎨 Draw.io | Architecture and dimensional model diagrams |
+| Documentation | 📝 Notion | Project notes, design, and tracking |
+| Containerization | 🐳 Docker | *(Future Enhancement: Environment reproducibility)* |
 
 ---
 
 ## 📂 Repository Structure
 
-The project follows a standard data engineering structure for clarity and maintainability:
-
-| Folder | Content |
-| :--- | :--- |
-| **`datasets`** | Raw source data files (ERP and CRM CSVs). |
-| **`scripts`** | Ordered SQL files for the ETL/ELT process: DDL, Staging, Data Quality, and Dimensional Loading. |
-| **`docs`** | Documentation files, including design notes and detailed data dictionaries. |
-| **`assets`** | **NEW!** Placeholder for embedded images (e.g., schemas, dashboards). |
-| **`tests`** | Data validation or quality assurance scripts. |
-
----
-
-## 🖼️ Project Visuals (Architecture & Schema)
-
-### Data Warehouse Architecture
-
-![Architecture Diagram: Source Systems to PostgreSQL DWH](docs/Architecture.png)
+```text
+datasets/        # Raw ERP & CRM CSV files
+scripts/         # SQL scripts for ETL & transformations
+ ├── bronze/     # Raw data ingestion
+ ├── silver/     # Cleansing & standardization
+ └── gold/       # Dimensional model & analytics
+docs/            # Architecture, diagrams, data catalog
+assets/          # Images for README or dashboards
+tests/           # Data validation scripts
+README.md        # Project overview
+LICENSE
+.gitignore
+requirements.txt
